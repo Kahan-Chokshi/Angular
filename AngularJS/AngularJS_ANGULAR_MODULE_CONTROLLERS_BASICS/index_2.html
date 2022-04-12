@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html ng-app="MyModule">
+  <head>
+    <title>Angular JS Module</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script
+      src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js"
+      type="text/javascript"
+    ></script>
+
+    <script type="text/javascript">
+      var MyModule = angular.module("MyModule", []);
+
+      var MyController = function ($scope) {
+        var CompanyFounders = {
+          Founder1: "Mr. Kahan Chokshi",
+          Founder2: "Mr. Shadow",
+          Founder3: "Mr. CyberWarrior",
+        };
+        $scope.CompanyFounders = CompanyFounders;
+      };
+
+      MyModule.controller("MyController", MyController);
+    </script>
+
+    <style type="text/css">
+      span {
+        color: maroon;
+        font-size: 22px;
+        font-weight: bold;
+      }
+      b {
+        color: teal;
+        font-size: 22px;
+      }
+    </style>
+  </head>
+  <body>
+    <div ng-controller="MyController">
+      <span>{{CompanyFounders.Founder1}}</span>
+      <hr />
+      <span>{{CompanyFounders.Founder2}}</span>
+      <hr />
+      <span>{{CompanyFounders.Founder3}}</span>
+      <hr />
+    </div>
+  </body>
+</html>
