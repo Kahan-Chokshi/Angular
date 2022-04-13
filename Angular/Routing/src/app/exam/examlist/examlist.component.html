@@ -1,1 +1,13 @@
 <p>examlist component.</p>
+<div>
+    <input type="text" [(ngModel)]="query" (keyup.enter)="doSearch()">
+    <button (click)="doSearch()">Search</button>
+  </div>
+  <p *ngIf="searchKey">
+    Search key: {{ searchKey }}
+  </p>
+  
+  <p *ngIf="page">
+    Page: {{ page }}
+  </p>
+  

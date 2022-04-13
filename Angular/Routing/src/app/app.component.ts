@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { NotFoundService } from './services/not-found.service';
-// import { Subscription } from 'rxjs/Rx';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -9,15 +9,15 @@ import { NotFoundService } from './services/not-found.service';
 })
 export class AppComponent implements OnInit, OnDestroy {
   title = 'app module.';
-  // subscription: Subscription;
+  subscription: Subscription = Subscription.EMPTY;
   isNotFound: boolean = false;
 
   constructor(private nfService: NotFoundService) {}
   ngOnInit() {
-    // this.subscription = this.nfService.notFound$.subscribe(isNotFound => this.isNotFound = isNotFound)
+    this.subscription = this.nfService.notFound$.subscribe(isNotFound => this.isNotFound = isNotFound)
   }
 
   ngOnDestroy() {
-    // this.subscription.unsubscribe();
+    this.subscription.unsubscribe();
   }
 }

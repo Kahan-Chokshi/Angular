@@ -1,14 +1,14 @@
 import { Injectable } from '@angular/core';
-// import { Subject, BehaviorSubject } from "rxjs/Rx";
+import { Subject, BehaviorSubject } from "rxjs";
 
 @Injectable()
 export class NotFoundService {
-  // notFound$: Subject<boolean> = new BehaviorSubject<boolean>(false);
+  notFound$: Subject<boolean> = new BehaviorSubject<boolean>(false);
   constructor() { }
   emit(value: boolean) {
-    // this.notFound$.next(value);
+    this.notFound$.next(value);
   }
-  // get value():boolean {
-  //    return (this.notFound$ as BehaviorSubject<boolean>).getValue();
-  // }
+  get value():boolean {
+     return (this.notFound$ as BehaviorSubject<boolean>).getValue();
+  }
 }
