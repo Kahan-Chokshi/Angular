@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+import { map } from 'rxjs';
 
 @Component({
   selector: 'app-examdetail',
@@ -15,15 +16,15 @@ export class ExamdetailComponent implements OnInit {
   constructor(private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
-    // this.route.params
-    //   .map(params => ({
-    //     id: params['id'] || 1,
-    //     step: params['step'] || 1
-    //   }))
-    //   .subscribe(p => {
-    //     this.data.examId = p.id;
-    //     this.data.step = p.step;
-    //   })
+    this.route.params
+      .pipe(map(params => ({
+        id: params['id'] || 1,
+        step: params['step'] || 1
+      })))
+      .subscribe(p => {
+        this.data.examId = p.id;
+        this.data.step = p.step;
+      })
   }
   doIt() {
     let matrixUrlData = {

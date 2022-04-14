@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Subscription } from 'rxjs';
+import { Subscription, map } from 'rxjs';
 import { ActivatedRoute, Router, NavigationExtras } from '@angular/router';
 
 @Component({
@@ -18,17 +18,17 @@ export class ExamlistComponent implements OnInit {
   constructor(private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
-    // this.subscription = this.route
-    //   .queryParams
-    //   .map(params => ({
-    //     // return object with all needed key
-    //     searchKey: params['searchKey'] || '',
-    //     page: params['page'] || 1
-    //   }))
-    //   .subscribe(param => {
-    //     this.searchKey = param.searchKey;
-    //     this.page = param.page;
-    //   });
+    this.subscription = this.route
+      .queryParams
+      .pipe(map(params => ({
+        // return object with all needed key
+        searchKey: params['searchKey'] || '',
+        page: params['page'] || 1
+      })))
+      .subscribe(param => {
+        this.searchKey = param.searchKey;
+        this.page = param.page;
+      });
   }
 
   doSearch() {
