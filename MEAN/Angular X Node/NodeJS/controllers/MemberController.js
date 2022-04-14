@@ -40,6 +40,7 @@ router.post('/',(req,res)=>{
     
     MemberRecord.save((err,doc)=>{
         if(err)throw err;
+        res.status(200).send(doc);
         console.log("Document Inserted Succefully..!!");
     });
 });

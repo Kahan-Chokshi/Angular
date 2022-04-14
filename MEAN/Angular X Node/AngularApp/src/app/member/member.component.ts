@@ -12,7 +12,6 @@ declare var Mes: any;
   providers:[MemberService]
 })
 export class MemberComponent implements OnInit {
-
   constructor(readonly memberService:MemberService) { }
 
   ngOnInit() {
@@ -21,12 +20,7 @@ export class MemberComponent implements OnInit {
   }
 
   resetForm(form?:NgForm){
-    
-    if(form)
-    {
-      form.reset();
-    }
-    
+  
     this.memberService.selectedMember={
       _id:"",
       FirstName:"", 
@@ -36,6 +30,11 @@ export class MemberComponent implements OnInit {
       Password:"", 
       Gender:"", 
       Status:"" 
+    }
+    
+    if(form)
+    {
+      form.reset();
     }
   }
 
@@ -47,17 +46,17 @@ export class MemberComponent implements OnInit {
 
   onSubmit(form: NgForm)
   {
-      form.value.Gender="Male";  
+      // form.value.Gender="Male";  
       form.value.Status="Y";
-      if (form.value._id == "") {
-          this.memberService.postMember(form.value).subscribe((res) => {
-         this.resetForm(form);
-         this.getMembersListData();
+      if (form.value._id == "" || form.value._id == null) {
+        this.memberService.postMember(form.value).subscribe((res) => {
+          this.resetForm(form);
+          this.getMembersListData();
           Mes.toast({ html: 'Saved successfully', classes: 'rounded' });
         });
       }
       else {
-          this.memberService.putMember(form.value).subscribe((res) => {
+        this.memberService.putMember(form.value).subscribe((res) => {
           this.resetForm(form);
           this.getMembersListData();
           Mes.toast({ html: 'Updated successfully', classes: 'rounded' });

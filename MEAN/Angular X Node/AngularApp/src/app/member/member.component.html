@@ -72,6 +72,32 @@
                     <label class="red-text">*</label>
                   </label>
                 </div>
+                <!-- <div class="input-field col s12"> -->
+                <label
+                  >Gender:
+                  <label class="red-text">*</label>
+                </label>
+                <label>&nbsp;&nbsp;
+                  <input
+                    type="radio"
+                    name="Gender"
+                    #Gender="ngModel"
+                    [(ngModel)]="memberService.selectedMember.Gender"
+                    value="Male"
+                    required
+                  /><span>Male</span></label
+                >
+                <label>&nbsp;&nbsp;
+                  <input
+                    type="radio"
+                    name="Gender"
+                    #Gender="ngModel"
+                    [(ngModel)]="memberService.selectedMember.Gender"
+                    value="Female"
+                    required
+                  /><span>Female</span>
+                </label>
+                <!-- </div> -->
                 <div class="input-field col s12">
                   <input
                     type="password"

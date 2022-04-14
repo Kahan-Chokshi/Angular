@@ -1,8 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {Observable} from 'rxjs';
-import { map } from 'rxjs/operators';
-
+import {Observable, map} from 'rxjs';
 import{Member} from './member.model'
 
 
@@ -20,7 +18,7 @@ export class MemberService {
 
   constructor(private http:HttpClient) { }
   
-  postMember(M:Member){
+  postMember(M: Member){
       return this.http.post(this.baseURL,M);
   }
 

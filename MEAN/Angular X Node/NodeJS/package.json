@@ -9,7 +9,7 @@
   "keywords": [
     "MEANSTACK"
   ],
-  "author": "Mr. Abhishek N. Pujara",
+  "author": "Mr. Kahan Chokshi",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.19.0",
