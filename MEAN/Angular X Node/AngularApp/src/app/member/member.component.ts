@@ -31,7 +31,7 @@ export class MemberComponent implements OnInit {
       Gender:"", 
       Status:"" 
     }
-    
+
     if(form)
     {
       form.reset();
@@ -66,6 +66,7 @@ export class MemberComponent implements OnInit {
 
   onEdit(M: Member) {
     this.memberService.selectedMember = M;
+    this.getMembersListData();
   }
 
   onDelete(_id: string, form: NgForm) {
