@@ -46,22 +46,22 @@ export class MemberComponent implements OnInit {
 
   onSubmit(form: NgForm)
   {
-      // form.value.Gender="Male";  
-      form.value.Status="Y";
-      if (form.value._id == "" || form.value._id == null) {
-        this.memberService.postMember(form.value).subscribe((res) => {
-          this.resetForm(form);
-          this.getMembersListData();
-          Mes.toast({ html: 'Saved successfully', classes: 'rounded' });
-        });
-      }
-      else {
-        this.memberService.putMember(form.value).subscribe((res) => {
-          this.resetForm(form);
-          this.getMembersListData();
-          Mes.toast({ html: 'Updated successfully', classes: 'rounded' });
-        });
-      }
+    // form.value.Gender="Male";  
+    form.value.Status="Y";
+    if (form.value._id == "" || form.value._id == null) {
+      this.memberService.postMember(form.value).subscribe((res) => {
+        this.resetForm(form);
+        this.getMembersListData();
+        Mes.toast({ html: 'Saved successfully', classes: 'rounded' });
+      });
+    }
+    else {
+      this.memberService.putMember(form.value).subscribe((res) => {
+        this.resetForm(form);
+        this.getMembersListData();
+        Mes.toast({ html: 'Updated successfully', classes: 'rounded' });
+      });
+    }
   }  
 
   onEdit(M: Member) {
