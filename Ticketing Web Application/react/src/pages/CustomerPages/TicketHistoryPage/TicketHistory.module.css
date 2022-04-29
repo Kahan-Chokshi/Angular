@@ -1,0 +1,10 @@
+.container {
+    margin:60px;
+    padding: 30px;
+    flex-grow: 1;
+}
+@media (min-width: 0px)and (max-width: 1024px){
+    .container {
+        margin: 5vh 5vw;
+    }
+}

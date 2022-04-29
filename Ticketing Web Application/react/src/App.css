@@ -1,0 +1,19 @@
+.App{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.back {
+
+}
+.backImg {
+    position: absolute;
+    top: 0;
+    filter: blur(20px);
+    z-index: -100;
+    height: 100vh;
+    width: 100vw;
+    object-fit: cover;
+}

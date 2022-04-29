@@ -1,0 +1,35 @@
+.formStyle {
+    padding-left: 60px;
+    padding-right: 60px;
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.formContainer {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+.subText {
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    opacity: 50%;
+}
+.link {
+    text-decoration: none;
+    text-align: center;
+    color: white;
+    padding: 10px;
+}
+.error {
+    font-weight: bold;
+    color: red;
+    margin:0;
+}
+@media (min-width: 0px)and (max-width: 900px){
+    .formStyle {
+        padding: 0 5vw;
+    }
+}

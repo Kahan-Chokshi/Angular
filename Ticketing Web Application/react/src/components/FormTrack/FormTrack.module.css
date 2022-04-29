@@ -1,0 +1,29 @@
+.trackFormContainer {
+    width: 25%;
+    position: absolute;
+    margin-left: 30px;
+    margin-bottom: 30px;
+}
+.card {
+    padding: 20px;
+}
+.heading {
+    color: white;
+}
+.trackForm {
+    display: flex;
+    flex-direction: column;
+}
+.trackBtn {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    flex-grow: 1;
+}
+@media (min-width: 0px)and (max-width: 880px){
+    .trackFormContainer {
+        margin-top:5vh ;
+        position: unset;
+        width: 100%;
+        margin-left: 0;
+    }
+}

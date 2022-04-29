@@ -1,0 +1,20 @@
+.stopsSection {
+    padding:5vh 5vw 5vh 5vw;
+    display: flex;
+    flex-grow: 1;
+
+}
+.cardContainer {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+.topCard {
+
+}
+.bottomCard {
+    margin-top: 30px;
+    display: flex;
+    flex-grow: 1;
+
+}
