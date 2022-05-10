@@ -5,7 +5,7 @@ import {useHistory} from "react-router-dom";
 import classes from "./NavBarItems.module.css";
 
 import NavBarItem, {subItem} from "../NavBarItem/NavBarItem";
-import {busesLink, loginLink, searchLink, staffLink, stopsLink, trackLink, usersLink} from "../../../LinkPaths";
+import {busesLink, loginLink, searchLink, stopsLink, trackLink} from "../../../LinkPaths";
 
 import {authActions} from "../../../store/auth-slice";
 import {busesListAction} from "../../../store/buses-list-slice";
@@ -19,8 +19,8 @@ import trackIcon from "../../../images/bx_bx-current-location.svg";
 import profileIcon from "../../../images/vs_profile.svg";
 import buses from "../../../images/fa-solid_bus-alt.svg";
 import stop from "../../../images/ic_round-place.svg";
-import staff from "../../../images/medical-icon_care-staff-area.svg";
-import users from "../../../images/clarity_users-line.svg";
+// import staff from "../../../images/medical-icon_care-staff-area.svg";
+// import users from "../../../images/clarity_users-line.svg";
 import history from "../../../images/ant-design_history-outlined.svg";
 import gear from "../../../images/carbon_settings.svg";
 import logout from "../../../images/ic_round-logout.svg";
@@ -95,8 +95,7 @@ const NavBarItems: React.FC<{}> = () => {
                 <Fragment>
                     <NavBarItem imageLocation={buses} text={'Buses'} location={busesLink}/>
                     <NavBarItem imageLocation={stop} text={'Stops'} location={stopsLink}/>
-                    <NavBarItem imageLocation={staff} text={'Staff'} location={staffLink}/>
-                    <NavBarItem imageLocation={users} text={'Users'} location={usersLink}/>
+                    {/* <NavBarItem imageLocation={staff} text={'Staff'} location={staffLink}/> */}
                     <NavBarItem imageLocation={profileIcon} text={'Account'} subItems={adminAccountSubItems}/>
                 </Fragment>
             }

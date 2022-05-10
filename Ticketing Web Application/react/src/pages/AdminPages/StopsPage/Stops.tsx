@@ -5,7 +5,7 @@ import FormSearchStops from "../../../components/AdminComponents/Forms/FormSearc
 import StopsList from "../../../components/AdminComponents/Lists/StopsList/StopsList";
 import {Fragment} from "react";
 import BackDrop from "../../../UI/BackDrop/BackDrop";
-import FormAddOrEditStop from "../../../components/AdminComponents/Forms/FormAddOrEditStop/FormAddOrEditStop";
+import FormAddOrEditStop from "../../../components/AdminComponents/Forms/FormAOEStop/FormAddOrEditStop";
 import {useDispatch, useSelector} from "react-redux";
 import {stopsListAction} from "../../../store/stops-list-slice";
 import ConfirmationCard from "../../../UI/ConfirmationCard/ConfirmationCard";

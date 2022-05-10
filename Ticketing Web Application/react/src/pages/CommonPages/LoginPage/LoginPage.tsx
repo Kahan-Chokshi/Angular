@@ -18,7 +18,7 @@ import FormUserResetPassword from "../../../components/UserComponents/Forms/Form
 import {
     emailLoginLink,
     emailPasswordResetLink,
-    googleLoginLink,
+    // googleLoginLink,
     emailRegisterLink,
     loginLink,
     phoneOtpLink,
