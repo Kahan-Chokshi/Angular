@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Route, Switch, Redirect } from "react-router-dom";
+import { Route, Switch, Redirect, useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
 import "./App.css";
@@ -31,7 +31,8 @@ import {
 import fetch from "node-fetch";
 
 function App() {
-  const dispatch = useDispatch();
+const pathHistory = useHistory();
+const dispatch = useDispatch();
   useEffect(() => {
     fetch("http://localhost:8080/validateToken", {
       headers: {
@@ -46,6 +47,7 @@ function App() {
         if (data.error) {
           dispatch(authActions.logout());
           localStorage.removeItem("authToken");
+          pathHistory.replace("/");
           return;
         }
         if (data.isAdmin) {
