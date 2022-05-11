@@ -10,10 +10,7 @@ export const emailPasswordResetLink: string = `${loginLink}/emailPasswordReset`;
 export const profileLink = `/profile`;
 export const historyLink = `/history`;
 export const resetLink = `${loginLink}/reset/:token`;
-
-
 export const busesLink = `/buses`;
 export const stopsLink = `/stops`;
 export const staffLink = `/staff`;
 export const usersLink = `/users`;
-

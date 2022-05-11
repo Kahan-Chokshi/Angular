@@ -7,7 +7,7 @@ import mail from "../../images/line-md_email.svg";
 import classes from "./LoginUI.module.css";
 import LinkGradientImageButton from "../../UI/Buttons/LinkButtons/LinkGradientImageButton/LinkGradientImageButton";
 import { Link } from "react-router-dom";
-import { emailLoginLink, googleLoginLink } from "../../LinkPaths";
+import { emailLoginLink } from "../../LinkPaths";
 // import NormalGradientImageButton from "../../UI/Buttons/NormalButtons/NormalGradientImageButton/NormalGradientImageButton";
 const LoginUI: React.FC<{}> = () => {
   const url: string = "/login";
