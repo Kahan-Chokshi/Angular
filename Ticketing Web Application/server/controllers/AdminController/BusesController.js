@@ -101,7 +101,7 @@ exports.deleteBus = (req, res, next) => {
   const busId = req.params.busId;
   Bus.findByIdAndUpdate(busId, { isdeleted: true, deletedAt: new Date() })
     .then((bus) => {
-      res.json({
+      res.status(200).json({
         message: "deleted",
         DeletedBus: bus,
       });

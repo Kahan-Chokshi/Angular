@@ -37,7 +37,7 @@ exports.postSearchStaff = (req, res, next) => {
             test: 'no valid params'
         });
     }
-    // fetch staff from database staff email
+
     Staff.find({
         email: staffEmail
     })
@@ -123,7 +123,7 @@ exports.putResetPassword = (req, res, next) => {
         })
         .then(savedStaff => {
             res.status(200).json({
-                message: 'Saved staff',
+                message: 'Staff found',
                 staff: savedStaff.email
             });
         })
