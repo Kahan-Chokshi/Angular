@@ -5,7 +5,6 @@ exports.postSearchStops = (req, res, next) => {
   const isStopName = stopName.trim().length > 0;
   const isStopId = stopId.trim().length > 0;
   if (isStopName) {
-    // fetch stop from database using stop name
     BusStop.find({
       name: stopName,
     })
@@ -23,7 +22,6 @@ exports.postSearchStops = (req, res, next) => {
       });
   }
   if (isStopId) {
-    // fetch stop from database using stopId
     BusStop.find({
       _id: stopId,
     })

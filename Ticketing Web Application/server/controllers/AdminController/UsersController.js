@@ -35,7 +35,6 @@ exports.postSearchUsers = (req, res, next) => {
         });
     }
     if (isUserEmail) {
-        // fetch user from database using email
         User.findOne({email: userEmail})
             .then(user => {
                 if(!user) {
@@ -52,7 +51,6 @@ exports.postSearchUsers = (req, res, next) => {
 
     }
     if (isUserPhone) {
-        // fetch user from database using phone number
         User.findOne({phone: userPhone})
             .then(user => {
                 if(!user) {
