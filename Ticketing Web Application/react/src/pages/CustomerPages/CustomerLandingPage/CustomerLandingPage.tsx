@@ -12,7 +12,7 @@ const CustomerLandingPage: React.FC<{}> = () => {
   return (
     <section className={classes.entire}>
       <div className={`${classes.common}`}>
-        <div className={`${classes.heading} }`}>
+        <div className={`${classes.heading}`}>
           <h1>Air Bus</h1>
           <h1>Bus Ticketing System</h1>
         </div>

@@ -11,7 +11,7 @@ const AdminLandingPage:React.FC = () => {
     return (
       <section className={classes.entire}>
         <div className={`${classes.common}`}>
-          <div className={`${classes.heading} }`}>
+          <div className={`${classes.heading}`}>
             <h1>Hello Admin</h1>
             <h1>Welcome to Air bus </h1>
           </div>
