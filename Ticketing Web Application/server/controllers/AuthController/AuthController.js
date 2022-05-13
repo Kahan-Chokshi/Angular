@@ -14,7 +14,7 @@ const twilioClient = twilio(twilioSID, twilioToken, { accountSid: "AC" });
 const saltRounds = 12;
 const jwtExpiry = 3600000;
 
-exports.validateToken = (req, res) => {
+exports.validateToken = (req, res, next) => {
   try {
     const token = req.get("Authorization").split(" ")[1];
     const payload = jwt.verify(token, jwtKey);
@@ -38,12 +38,7 @@ exports.validateToken = (req, res) => {
       });
     }
     return;
-  } catch (e) {
-    res.json({
-      error: true,
-      errorMessage: "Invalid Token or Token Expired",
-    });
-  }
+  } catch (e) {}
   try {
     const token = req.get("Authorization").split(" ")[1];
     const payload = jwt.verify(token, jwtAdminKey);
@@ -53,32 +48,31 @@ exports.validateToken = (req, res) => {
         isAdmin: true,
         isValid: true,
       });
-    } 
-    else {
+    } else {
       console.log("in else");
       return res.json({
         error: true,
         errorMessage: "Token Expired",
       });
     }
-  } 
-  catch (e) {
-    return res.json({
-      error: true,
-      errorMessage: "Token Invalid",
-    });
-  }
+  } catch (e) {}
+  return res.json({
+    error: true,
+    errorMessage: "Token Invalid",
+  });
 };
-exports.isAuthenticatedUser = (req, res) => {
+exports.isAuthenticatedUser = (req, res, next) => {
   try {
     const token = req.get("Authorization").split(" ")[1];
     const payload = jwt.verify(token, jwtKey);
     if (Date.now() < payload.exp) {
       if (payload.email) {
         req.email = payload.email;
+        next();
       }
       if (payload.phone) {
         req.phone = payload.phone;
+        next();
       }
     } else {
       res.json({
@@ -197,6 +191,7 @@ exports.postOTPAuthentication = (req, res, next) => {
       foundUser.otp = 0;
       return foundUser.save();
     })
+    .then((savedUser) => {})
     .catch((err) => {
       console.log(err);
     });
@@ -261,9 +256,10 @@ exports.postAuthUserWithEmailAndPassword = (req, res, next) => {
     });
 };
 
-exports.postCreateAccountEmail = (req, res) => {
+exports.postCreateAccountEmail = (req, res, next) => {
   const email = req.body.email;
   const password = req.body.password;
+  const confirmPassword = req.body.confirmPassword;
   User.find({
     email: email,
   })
@@ -298,7 +294,7 @@ exports.postCreateAccountEmail = (req, res) => {
     });
 };
 
-exports.postResetPassword = (req, res) => {
+exports.postResetPassword = (req, res, next) => {
   const email = req.body.email;
   console.log(req.body);
   crypto.randomBytes(64, (err, buf) => {
@@ -317,7 +313,6 @@ exports.postResetPassword = (req, res) => {
           });
           return Promise.reject("No User with given email");
         }
-
         user.resetToken = {
           token: token,
           expiry: Date.now() + 3600000,
@@ -337,7 +332,7 @@ exports.postResetPassword = (req, res) => {
   });
 };
 
-exports.getNewPassword = (req, res) => {
+exports.getNewPassword = (req, res, next) => {
   const resetToken = req.params.token;
   User.findOne({ "resetToken.token": resetToken })
     .then((user) => {
@@ -367,7 +362,7 @@ exports.getNewPassword = (req, res) => {
     });
 };
 
-exports.postNewPassword = (req, res) => {
+exports.postNewPassword = (req, res, next) => {
   const resetToken = req.params.token;
   const password = req.body.password;
   const confirmPassword = req.body.confirmPassword;
