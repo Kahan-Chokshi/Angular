@@ -200,13 +200,10 @@ exports.postOTPAuthentication = (req, res, next) => {
 exports.postAuthUserWithEmailAndPassword = (req, res, next) => {
   const email = req.body.email;
   const password = req.body.password;
-  console.log(req.body.email);
-  console.log(req.body.password);
   User.findOne({
     email: email,
   })
     .then((foundUser) => {
-      console.log(foundUser);
       bcrypt.compare(password, foundUser.password, (err, result) => {
         if (!result || err) {
           return res.json({
