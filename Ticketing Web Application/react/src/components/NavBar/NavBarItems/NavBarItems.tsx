@@ -87,31 +87,29 @@ const NavBarItems: React.FC<{}> = () => {
       {!isAdmin && (
         <Fragment>
           {authStatus && (
-            <NavBarItem
-              imageLocation={searchIcon}
-              text={"Search"}
-              location={searchLink}
-            />
-          )}
-          {authStatus && (
-            <NavBarItem
-              imageLocation={trackIcon}
-              text={"Track"}
-              location={trackLink}
-            />
+            <>
+              <NavBarItem
+                imageLocation={searchIcon}
+                text={"Search"}
+                location={searchLink}
+              />
+              <NavBarItem
+                imageLocation={trackIcon}
+                text={"Track"}
+                location={trackLink}
+              />
+              <NavBarItem
+                imageLocation={profileIcon}
+                text={"Account"}
+                subItems={userAccountSubItems}
+              />
+            </>
           )}
           {!authStatus && (
             <NavBarItem
               imageLocation={profileIcon}
               text={"Login"}
               location={loginLink}
-            />
-          )}
-          {authStatus && (
-            <NavBarItem
-              imageLocation={profileIcon}
-              text={"Account"}
-              subItems={userAccountSubItems}
             />
           )}
         </Fragment>
