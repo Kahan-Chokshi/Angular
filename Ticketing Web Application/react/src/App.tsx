@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Route, Switch, Redirect, useHistory } from "react-router-dom";
+import { Route, Switch, useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
 import "./App.css";
@@ -74,8 +74,8 @@ const dispatch = useDispatch();
             <CustomerLandingPage />
           </Route>
           {isLoggedIn ? (
-            <Route path={loginLink}>
-              <Redirect to={searchLink} />
+            <Route path={searchLink}>
+               <SearchPage />
             </Route>
           ) : (
             <Route path={loginLink}>
