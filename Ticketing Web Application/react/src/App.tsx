@@ -97,7 +97,6 @@ const dispatch = useDispatch();
           <Route path={trackLink}>
             <TrackPage />
           </Route>
-          <Route path={"/"}> 404</Route>
         </Switch>
       )}
       {isAdmin && (
@@ -114,7 +113,6 @@ const dispatch = useDispatch();
           <Route path={staffLink}>
             <StaffPage />
           </Route>
-          <Route path={"/"}> 404</Route>
         </Switch>
       )}
 
