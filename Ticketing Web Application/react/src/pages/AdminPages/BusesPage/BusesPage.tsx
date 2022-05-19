@@ -53,32 +53,38 @@ const BusesPage: React.FC<{}> = () => {
   const onCloseHandler = () => dispatch(busesListAction.closeAll());
   return (
     <Fragment>
-      <BackDrop
-        visibility={`${isAddOpen ? "show" : "hide"}`}
-        onClick={onCloseHandler}
-      >
-        <FormAddOrEditBus mode={"Add"} onCloseHandler={onCloseHandler} />
-      </BackDrop>
-      <BackDrop
-        visibility={`${isEditOpen ? "show" : "hide"}`}
-        onClick={onCloseHandler}
-      >
-        <FormAddOrEditBus mode={"Edit"} onCloseHandler={onCloseHandler} />
-      </BackDrop>
-      <BackDrop
-        visibility={`${isDeleteOpen ? "show" : "hide"}`}
-        onClick={onCloseHandler}
-      >
-      <ConfirmationCard
-        title={"Delete Bus"}
-        message={"Are you sure do you want to delete the bus"}
-        leftButtonText={"No"}
-        rightButtonText={"yes"}
-        leftButtonClickHandler={onCloseHandler}
-        rightButtonClickHandler={deleteBusHandler}
-        onClose={onCloseHandler}
-      />
-      </BackDrop>
+      {isAddOpen && (
+        <BackDrop
+          visibility={`${isAddOpen ? "show" : "hide"}`}
+          onClick={onCloseHandler}
+        >
+          <FormAddOrEditBus mode={"Add"} onCloseHandler={onCloseHandler} />
+        </BackDrop>
+      )}
+      {isEditOpen && (
+        <BackDrop
+          visibility={`${isEditOpen ? "show" : "hide"}`}
+          onClick={onCloseHandler}
+        >
+          <FormAddOrEditBus mode={"Edit"} onCloseHandler={onCloseHandler} />
+        </BackDrop>
+      )}
+      {isDeleteOpen && (
+        <BackDrop
+          visibility={`${isDeleteOpen ? "show" : "hide"}`}
+          onClick={onCloseHandler}
+        >
+          <ConfirmationCard
+            title={"Delete Bus"}
+            message={"Are you sure do you want to delete the bus"}
+            leftButtonText={"No"}
+            rightButtonText={"yes"}
+            leftButtonClickHandler={onCloseHandler}
+            rightButtonClickHandler={deleteBusHandler}
+            onClose={onCloseHandler}
+          />
+        </BackDrop>
+      )}
       <section className={classes.busesContainer}>
         <div className={classes.subContainer}>
           <GrayCard cssClasses={[classes.topCard]}>

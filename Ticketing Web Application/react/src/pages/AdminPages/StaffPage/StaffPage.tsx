@@ -59,38 +59,46 @@ const StaffPage: React.FC<{}> = () => {
   };
   return (
     <Fragment>
-      <BackDrop
-        visibility={`${isAddOpen ? "show" : "hide"}`}
-        onClick={onCloseHandler}
-      >
-        <FormAddPeople type={"Staff"} onCloseHandler={onCloseHandler} />
-      </BackDrop>
-      <BackDrop
-        visibility={`${isChangeBusOpen ? "show" : "hide"}`}
-        onClick={onCloseHandler}
-      >
-        <FormChangeBus onCloseHandler={onCloseHandler} />
-      </BackDrop>
-      <BackDrop
-        visibility={`${isResetPasswordOpen ? "show" : "hide"}`}
-        onClick={onCloseHandler}
-      >
-        <FormResetPassword type={"staff"} onCloseHandler={onCloseHandler} />
-      </BackDrop>
-      <BackDrop
-        visibility={`${isDeleteOpen ? "show" : "hide"}`}
-        onClick={onCloseHandler}
-      >
-        <ConfirmationCard
-          title={"Delete Staff"}
-          message={"Are you sure do you want to delete staff?"}
-          leftButtonText={"No"}
-          rightButtonText={"Yes"}
-          leftButtonClickHandler={onCloseHandler}
-          rightButtonClickHandler={onDeleteHandler}
-          onClose={onCloseHandler}
-        />
-      </BackDrop>
+      {isAddOpen && (
+        <BackDrop
+          visibility={`${isAddOpen ? "show" : "hide"}`}
+          onClick={onCloseHandler}
+        >
+          <FormAddPeople type={"Staff"} onCloseHandler={onCloseHandler} />
+        </BackDrop>
+      )}
+      {isChangeBusOpen && (
+        <BackDrop
+          visibility={`${isChangeBusOpen ? "show" : "hide"}`}
+          onClick={onCloseHandler}
+        >
+          <FormChangeBus onCloseHandler={onCloseHandler} />
+        </BackDrop>
+      )}
+      {isResetPasswordOpen && (
+        <BackDrop
+          visibility={`${isResetPasswordOpen ? "show" : "hide"}`}
+          onClick={onCloseHandler}
+        >
+          <FormResetPassword type={"staff"} onCloseHandler={onCloseHandler} />
+        </BackDrop>
+      )}
+      {isDeleteOpen && (
+        <BackDrop
+          visibility={`${isDeleteOpen ? "show" : "hide"}`}
+          onClick={onCloseHandler}
+        >
+          <ConfirmationCard
+            title={"Delete Staff"}
+            message={"Are you sure do you want to delete staff?"}
+            leftButtonText={"No"}
+            rightButtonText={"Yes"}
+            leftButtonClickHandler={onCloseHandler}
+            rightButtonClickHandler={onDeleteHandler}
+            onClose={onCloseHandler}
+          />
+        </BackDrop>
+      )}
       <section className={classes.staffSection}>
         <div className={classes.cardContainer}>
           <GrayCard cssClasses={[classes.topCard]}>

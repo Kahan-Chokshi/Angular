@@ -73,36 +73,42 @@ const Stops: React.FC<{}> = () => {
   };
   return (
     <Fragment>
-      <BackDrop visibility={`${isAddOpen ? "show" : "hide"}`}>
-        <FormAddOrEditStop
-          mode={"Add"}
-          onCloseHandler={onCloseHandler}
-          stopNameSetter={setStopName}
-        />
-      </BackDrop>
-      <BackDrop visibility={`${isEditOpen ? "show" : "hide"}`}>
-        <FormAddOrEditStop
-          mode={"Edit"}
-          onCloseHandler={onCloseHandler}
-          stopName={stopName}
-          stopNameSetter={setStopName}
-          _id={stopId}
-        />
-      </BackDrop>
-      <BackDrop
-        visibility={`${isDeleteOpen ? "show" : "hide"}`}
-        onClick={onCloseHandler}
-      >
-        <ConfirmationCard
-          title={"Delete Stop"}
-          message={"Do you want to delete the stop"}
-          leftButtonText={"No"}
-          rightButtonText={"Yes"}
-          leftButtonClickHandler={onCloseHandler}
-          rightButtonClickHandler={deleteBusHandler}
-          onClose={onCloseHandler}
-        />
-      </BackDrop>
+      {isAddOpen && (
+        <BackDrop visibility={`${isAddOpen ? "show" : "hide"}`}>
+          <FormAddOrEditStop
+            mode={"Add"}
+            onCloseHandler={onCloseHandler}
+            stopNameSetter={setStopName}
+          />
+        </BackDrop>
+      )}
+      {isEditOpen && (
+        <BackDrop visibility={`${isEditOpen ? "show" : "hide"}`}>
+          <FormAddOrEditStop
+            mode={"Edit"}
+            onCloseHandler={onCloseHandler}
+            stopName={stopName}
+            stopNameSetter={setStopName}
+            _id={stopId}
+          />
+        </BackDrop>
+      )}
+      {isDeleteOpen && (
+        <BackDrop
+          visibility={`${isDeleteOpen ? "show" : "hide"}`}
+          onClick={onCloseHandler}
+        >
+          <ConfirmationCard
+            title={"Delete Stop"}
+            message={"Do you want to delete the stop"}
+            leftButtonText={"No"}
+            rightButtonText={"Yes"}
+            leftButtonClickHandler={onCloseHandler}
+            rightButtonClickHandler={deleteBusHandler}
+            onClose={onCloseHandler}
+          />
+        </BackDrop>
+      )}
       <section className={classes.stopsSection}>
         <div className={classes.cardContainer}>
           <GrayCard cssClasses={[classes.topCard]}>
