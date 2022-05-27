@@ -10,7 +10,9 @@
             <h1 align="left">Bus</h1>
             <form #Form>
               <div class="mb-2">
-                <div align="left" style="padding-left: 85px; font-size: 20px;">Bus No.</div>
+                <div align="left" style="padding-left: 85px; font-size: 20px">
+                  Search Bus
+                </div>
                 <input
                   type="text"
                   name="Bus"
@@ -24,31 +26,35 @@
                 style="
                   border-radius: 0.3rem;
                   height: 50px;
+                  margin-top: 3px;
+                  margin-right: 2px;
                   font-size: 20px;
                   color: rgb(0, 0, 0);
                   background-color: transparent;
                 "
-                class="btn btn-dark mb-2 col-md-10"
+                class="btn btn-dark mb-2 col-md-5"
                 type="submit"
               >
                 Search
               </button>
-            </form>
 
-            <button
-              style="
-                border-radius: 0.3rem;
-                height: 50px;
-                font-size: 20px;
-                color: rgb(0, 0, 0);
-                background-color: transparent;
-              "
-              class="btn btn-dark col-md-10"
-              (click)="open(mymodal)"
-              type="button"
-            >
-              Add
-            </button>
+              <button
+                style="
+                  border-radius: 0.3rem;
+                  height: 50px;
+                  margin-top: -5px;
+                  margin-left: 2px;
+                  font-size: 20px;
+                  color: rgb(0, 0, 0);
+                  background-color: transparent;
+                "
+                class="btn btn-dark col-md-5"
+                (click)="open(mymodal)"
+                type="button"
+              >
+                Add
+              </button>
+            </form>
           </div>
         </div>
       </div>
@@ -57,20 +63,47 @@
 </div>
 
 <ng-template #mymodal let-modal>
-    <div class="modal-header">
-      <h4 class="modal-title" id="modal-basic-title">Add Buss</h4>
-      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
-        <span aria-hidden="true">×</span>
-      </button>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Add Bus</h4>
+    <button
+      type="button"
+      class="close"
+      aria-label="Close"
+      (click)="modal.dismiss('Cross click')"
+    >
+      <span aria-hidden="true">×</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <span>Bus No.</span>
+    <input
+      style="width: 100%"
+      type="text"
+      placeholder="Enter Bus No."
+      required
+    /><br /><br />
+    <div>
+      <span>Stops</span>
+      <textarea style="width: 100%" type="text" value="" required></textarea>
     </div>
-    <div class="modal-body">
-      This is example from Tutsmake.com
-    </div>
-    <div class="modal-footer">
-      <button type="button" class="btn btn-outline-dark" (click)="modal.dismiss('Cross click')">Cancel</button>
-      <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
-    </div>
-  </ng-template>
+  </div>
+  <div class="modal-footer">
+    <button
+      type="button"
+      class="btn btn-outline-dark"
+      (click)="modal.dismiss('Cross click')"
+    >
+      Cancel
+    </button>
+    <button
+      type="button"
+      class="btn btn-outline-dark"
+      (click)="modal.close('Save click')"
+    >
+      Save
+    </button>
+  </div>
+</ng-template>
 
 <div class="container py-3 h-80">
   <div class="row d-flex justify-content-center h-100">
