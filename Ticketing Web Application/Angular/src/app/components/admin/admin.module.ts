@@ -6,6 +6,7 @@ import { BusesComponent } from './buses/buses.component';
 import { StopsComponent } from './stops/stops.component';
 import { StaffsComponent } from './staffs/staffs.component';
 import { AdminComponent } from './admin.component';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,6 @@ import { AdminComponent } from './admin.component';
     StopsComponent,
     StaffsComponent,
   ],
-  imports: [CommonModule, AdminRoutingModule],
+  imports: [CommonModule, NgbModule, AdminRoutingModule],
 })
 export class AdminModule {}
