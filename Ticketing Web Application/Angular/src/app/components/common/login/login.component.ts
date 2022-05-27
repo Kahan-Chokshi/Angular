@@ -36,14 +36,6 @@ export class LoginComponent implements OnInit {
     }
   }
 
-  // getUsersListData(form: NgForm) {
-  //   this.userService
-  //     .getUserList(form.value.Email, form.value.Password)
-  //     .subscribe((res) => {
-  //       console.log(res);
-  //     });
-  // }
-
   onSubmit(form: NgForm) {
     const { Email, Password } = form.value;
     this.userService.getUserList(Email, Password).subscribe({
@@ -64,9 +56,5 @@ export class LoginComponent implements OnInit {
         }
       },
     });
-  }
-
-  reloadPage(): void {
-    window.location.href = '/home';
   }
 }

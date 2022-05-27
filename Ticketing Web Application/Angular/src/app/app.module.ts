@@ -11,8 +11,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { HomeComponent } from './components/common/home/home.component';
-import { AdminComponent } from './components/admin/admin.component';
-import { UserComponent } from './components/user/user.component';
+import { AdminModule } from './components/admin/admin.module';
+import { UserModule } from './components/user/user.module';
 
 @NgModule({
   declarations: [
@@ -21,14 +21,14 @@ import { UserComponent } from './components/user/user.component';
     RegisterComponent,
     NavbarComponent,
     HomeComponent,
-    AdminComponent,
-    UserComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     CommonModule,
     AppRoutingModule,
+    AdminModule,
+    UserModule,
     HttpClientModule,
     FormsModule,
   ],

@@ -20,6 +20,7 @@ export class UserService {
   }
 
   public isAdmin(admin:string) {
+    window.localStorage.removeItem(Admin);
     window.localStorage.setItem(Admin, admin);
   }
 
