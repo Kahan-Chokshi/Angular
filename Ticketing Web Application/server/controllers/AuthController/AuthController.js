@@ -49,7 +49,6 @@ exports.validateToken = (req, res, next) => {
         isValid: true,
       });
     } else {
-      console.log("in else");
       return res.json({
         error: true,
         errorMessage: "Token Expired",
@@ -96,7 +95,6 @@ exports.isAuthenticatedAdmin = (req, res, next) => {
       req.email = payload.email;
       next();
     } else {
-      console.log("in else");
       res.json({
         error: true,
         errorMessage: "Token Expired",
@@ -112,7 +110,6 @@ exports.isAuthenticatedAdmin = (req, res, next) => {
 
 exports.postPhoneAuthentication = (req, res, next) => {
   const phone = req.body.phone;
-  console.log(req.body);
   let user;
   crypto.randomBytes(64, (err, buf) => {
     if (err) {
@@ -182,7 +179,6 @@ exports.postOTPAuthentication = (req, res, next) => {
           algorithm: "HS256",
         }
       );
-      console.log(token);
       res.json({
         message: `OTP Verified`,
         token: token,
@@ -293,13 +289,11 @@ exports.postCreateAccountEmail = (req, res, next) => {
 
 exports.postResetPassword = (req, res, next) => {
   const email = req.body.email;
-  console.log(req.body);
   crypto.randomBytes(64, (err, buf) => {
     if (err) {
       console.log(err);
     }
     const token = buf.toString("hex");
-    console.log(token);
     User.findOne({ email: email })
       .then((user) => {
         if (!user) {
@@ -385,7 +379,6 @@ exports.postNewPassword = (req, res, next) => {
         token: "",
         expiry: "",
       };
-      console.log(user);
       return user.save();
     })
     .then((savedUser) => {

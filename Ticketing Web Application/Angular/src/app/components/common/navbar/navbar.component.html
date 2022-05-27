@@ -1,42 +1,86 @@
 <header>
-    <div id="nav" class="navbar navbar-dark shadow-sm">
-      <button style="color: rgb(0, 0, 0); background-color: transparent;"
-        class="navbar-brand align-item-center d-flex"
-        routerLink="home"
+  <div id="nav" class="navbar navbar-dark shadow-sm">
+    <button
+      style="color: rgb(0, 0, 0); background-color: transparent"
+      class="navbar-brand align-item-center d-flex"
+      routerLink="home"
+      class="btn"
+    >
+      &nbsp;<i style="font-size: 30px" class="fa fa-bus">&nbsp; </i>
+      <strong style="font-size: 25px">Air Bus</strong>
+    </button>
+    <ng-container *ngIf="!userService.isLoggedIn">
+      <button
+        style="color: rgb(0, 0, 0); background-color: transparent"
+        routerLink="login"
         class="btn"
+        style="position: absolute; right: 200px"
       >
-        &nbsp;<i style="font-size: 30px" class="fa fa-bus">&nbsp; </i>
-        <strong style="font-size: 25px">Air Bus</strong>
+        <i style="font-size: 20px" class="fa fa-sign-in">&nbsp; </i>
+        <strong style="font-size: 18px">Sign In</strong>
       </button>
-      <ng-container >
-        <button style="color: rgb(0, 0, 0); background-color: transparent;"
-          routerLink="login"
+      <button
+        style="color: rgb(0, 0, 0); background-color: transparent"
+        routerLink="register"
+        class="btn"
+        style="position: absolute; right: 50px"
+      >
+        <i style="font-size: 20px" class="fa fa-user-plus">&nbsp; </i>
+        <strong style="font-size: 18px">Sign Up</strong>
+      </button>
+    </ng-container>
+
+    <ng-container *ngIf="userService.isLoggedIn">
+      <ng-container *ngIf="userService.isAdminIn">
+        <button
+          style="color: rgb(0, 0, 0); background-color: transparent"
+          routerLink="buses"
           class="btn"
-          style="position: absolute; right: 200px"
+          style="position: absolute; right: 250px"
         >
-          <i style="font-size: 20px" class="fa fa-sign-in">&nbsp; </i>
-          <strong style="font-size: 18px">Sign In</strong>
+          <i style="font-size: 20px" class="fa fa-bus">&nbsp; </i>
+          <strong style="font-size: 18px">Buses</strong>
         </button>
-        <button style="color: rgb(0, 0, 0); background-color: transparent;"
-          routerLink="register"
+        <button
+          style="color: rgb(0, 0, 0); background-color: transparent"
+          routerLink="stops"
           class="btn"
-          style="position: absolute; right: 50px"
+          style="position: absolute; right: 160px"
         >
-          <i style="font-size: 20px" class="fa fa-user-plus">&nbsp; </i>
-          <strong style="font-size: 18px">Sign Up</strong>
+          <i style="font-size: 20px" class="fa fa-map-marker">&nbsp; </i>
+          <strong style="font-size: 18px">Stops</strong>
         </button>
       </ng-container>
-  
-      <!-- <ng-container>
-        <button style="color: rgb(0, 0, 0); background-color: transparent;"
-          routerLink="login"
+      <ng-container *ngIf="!userService.isAdminIn">
+        <button
+          style="color: rgb(0, 0, 0); background-color: transparent"
+          routerLink="search"
           class="btn"
-          style="position: absolute; right: 100px"
+          style="position: absolute; right: 250px"
         >
-          <i style="font-size: 20px" class="fa fa-sign-out">&nbsp; </i>
-          <strong style="font-size: 18px">Sign Out</strong>
+          <i style="font-size: 20px" class="fa fa-search">&nbsp; </i>
+          <strong style="font-size: 18px">Search</strong>
         </button>
-      </ng-container> -->
-    </div>
-  </header>
-  
+        <button
+          style="color: rgb(0, 0, 0); background-color: transparent"
+          routerLink="track"
+          class="btn"
+          style="position: absolute; right: 160px"
+        >
+          <i style="font-size: 20px" class="fa fa-map">&nbsp; </i>
+          <strong style="font-size: 18px">Track</strong>
+        </button>
+      </ng-container>
+      <button
+        style="color: rgb(0, 0, 0); background-color: transparent"
+        routerLink="login"
+        class="btn"
+        style="position: absolute; right: 50px"
+        (click)="signOut()"
+      >
+        <i style="font-size: 20px" class="fa fa-sign-out">&nbsp; </i>
+        <strong style="font-size: 18px">Sign Out</strong>
+      </button>
+    </ng-container>
+  </div>
+</header>

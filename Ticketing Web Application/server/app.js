@@ -28,7 +28,7 @@ mongoose.connect(mongoUrl, {
 })
     .then(response => {
         app.listen(PORT,function(){
-            console.log(`Server is running on PORT: ${PORT}`);
+            console.log(`🚀 Server is running on PORT: ${PORT}`);
          });        
     })
     .catch(err => {
