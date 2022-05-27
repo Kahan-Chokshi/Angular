@@ -43,13 +43,13 @@ export class LoginComponent implements OnInit {
         this.tokenStorage.saveToken(data.token);
         if (data.isAdmin == true) {
           this.userService.isAdmin("true");
-          window.location.href = '/admin';
+          window.location.href = '/admin/buses';
           localStorage.setItem('isAdmin', '' + true);
           setTimeout(() => {
             localStorage.removeItem('authToken');
           }, 3600000);
         } else {
-          window.location.href = '/user';
+          window.location.href = '/user/search';
           setTimeout(() => {
             localStorage.removeItem('authToken');
           }, 3600000);

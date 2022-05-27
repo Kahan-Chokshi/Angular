@@ -7,11 +7,11 @@ import { StopsComponent } from './stops/stops.component';
 
 const routes: Routes = [
   {
-    path: 'admin ',
+    path: 'admin',
     component: AdminComponent,
     children: [
       {
-        path: '',
+        path: 'buses',
         component: BusesComponent,
         pathMatch: 'full'
       },
@@ -20,7 +20,7 @@ const routes: Routes = [
         component: StopsComponent
       },
       {
-        path: 'staff',
+        path: 'staffs',
         component: StaffsComponent
       }
     ]

@@ -34,7 +34,7 @@
       <ng-container *ngIf="userService.isAdminIn">
         <button
           style="color: rgb(0, 0, 0); background-color: transparent"
-          routerLink="buses"
+          routerLink="admin/buses"
           class="btn"
           style="position: absolute; right: 250px"
         >
@@ -43,7 +43,7 @@
         </button>
         <button
           style="color: rgb(0, 0, 0); background-color: transparent"
-          routerLink="stops"
+          routerLink="admin/stops"
           class="btn"
           style="position: absolute; right: 160px"
         >
@@ -54,7 +54,7 @@
       <ng-container *ngIf="!userService.isAdminIn">
         <button
           style="color: rgb(0, 0, 0); background-color: transparent"
-          routerLink="search"
+          routerLink="user/search"
           class="btn"
           style="position: absolute; right: 250px"
         >
@@ -63,7 +63,7 @@
         </button>
         <button
           style="color: rgb(0, 0, 0); background-color: transparent"
-          routerLink="track"
+          routerLink="user/track"
           class="btn"
           style="position: absolute; right: 160px"
         >

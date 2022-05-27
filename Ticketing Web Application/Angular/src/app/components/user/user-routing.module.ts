@@ -6,11 +6,11 @@ import { UserComponent } from './user.component';
 
 const routes: Routes = [
   {
-    path: 'user ',
+    path: 'user',
     component: UserComponent,
     children: [
       {
-        path: '',
+        path: 'search',
         component: SearchComponent,
         pathMatch: 'full'
       },
