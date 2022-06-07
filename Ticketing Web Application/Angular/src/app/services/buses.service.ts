@@ -9,14 +9,26 @@ export class BusesService {
   selectedBus: Buses;
   Buses: Buses[];
 
-  baseURL = 'http://localhost:8080/Buses';
+  baseURL = 'http://localhost:8080/admin';
 
   constructor(private http: HttpClient) {}
-  postMember(M: Buses) {
-    return this.http.post(this.baseURL, M);
+  postBus(B: Buses) {
+    return this.http.post(this.baseURL + '/addNewBus', B);
   }
 
-  getMemberList() {
-    return this.http.get(this.baseURL);
+  getBusesList(B: Buses) {
+    return this.http.post(this.baseURL + '/searchBuses',B);
+  }
+
+  putBuses(B: Buses) {
+    return this.http.put(this.baseURL + `/editBus`, B);
+  }
+  
+  deleteBuses(_id: string) {
+    return this.http.delete(this.baseURL + `/deleteBus/${_id}`);
+  }
+  
+  getBusesListUser(B: Buses) {
+    return this.http.post('http://localhost:8080/user/searchBuses',B);
   }
 }

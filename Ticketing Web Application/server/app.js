@@ -15,11 +15,11 @@ const app = express();
 app.use(bodyParser.json());
 app.use(cors());
 
-app.use('/admin', checkIsAdminAuthentication,adminRoutes);
+app.use('/admin',adminRoutes);
 app.use('/user', userRoutes);
 app.use('',authRoutes);
 
-const PORT = process.env.PORT || '8080'; 
+const PORT = 8080; 
 
 mongoose.connect(mongoUrl, {
     useNewUrlParser: true,

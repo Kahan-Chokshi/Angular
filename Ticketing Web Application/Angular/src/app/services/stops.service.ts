@@ -6,18 +6,26 @@ import { Stops } from '../models/stops.model';
   providedIn: 'root'
 })
 export class StopsService {
-    selectedStop: Stop;
-    Stops: Stop[];
+    selectedStop: Stops;
+    Stops: Stops[];
   
-    baseURL = 'http://localhost:8080/Stops';
+    baseURL = 'http://localhost:8080/admin';
   
     constructor(private http:HttpClient) {}
-    postMember(M: Stops) {
-      return this.http.post(this.baseURL, M);
+    postStop(S: Stops) {
+      return this.http.post(this.baseURL + '/addNewStop', S);
     }
   
-    getMemberList() {
-      return this.http.get(this.baseURL);
+    getStopList(S: Stops) {
+      return this.http.post(this.baseURL + '/searchStops', S);
+    }
+
+    putStops(S: Stops) {
+      return this.http.put(this.baseURL + `/editStop`, S);
+    }
+    
+    deleteStops(_id: string) {
+      return this.http.delete(this.baseURL + `/deleteStop/${_id}`);
     }
   }
   

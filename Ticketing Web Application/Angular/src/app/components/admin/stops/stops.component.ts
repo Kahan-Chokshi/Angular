@@ -1,38 +1,40 @@
 import { Component, OnInit } from '@angular/core';
-import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
+import { NgForm } from '@angular/forms';
+import { Stops } from '../../../models/stops.model';
+import { StopsService } from '../../../services/stops.service';
 
 @Component({
   selector: 'app-stops',
   templateUrl: './stops.component.html',
   styleUrls: ['./stops.component.css'],
+  providers: [StopsService],
 })
 export class StopsComponent implements OnInit {
   closeResult: string = '';
 
-  constructor(private modalService: NgbModal) {}
+  constructor(readonly stopService: StopsService) {}
 
   ngOnInit(): void {}
 
-  open(content: any) {
-    this.modalService
-      .open(content, { ariaLabelledBy: 'modal-basic-title' })
-      .result.then(
-        (result) => {
-          this.closeResult = `Closed with: ${result}`;
-        },
-        (reason) => {
-          this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
-        }
-      );
+  getStopsListData(form: NgForm) {
+    this.stopService.getStopList(form.value).subscribe((res) => {
+      this.stopService.Stops = res as Stops[];
+    });
   }
 
-  private getDismissReason(reason: any): string {
-    if (reason === ModalDismissReasons.ESC) {
-      return 'by pressing ESC';
-    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
-      return 'by clicking on a backdrop';
-    } else {
-      return `with: ${reason}`;
+  onSubmit(form: NgForm) {
+    if (form.value._id == '' || form.value._id == null) {
+      this.stopService.postStop(form.value).subscribe(() => {});
+    }
+  }
+
+  onEdit(S: Stops) {
+    this.stopService.selectedStop = S;
+  }
+
+  onDelete(_id: string) {
+    if (confirm('Are you sure to delete this record ?') == true) {
+      this.stopService.deleteStops(_id).subscribe(() => {});
     }
   }
 }

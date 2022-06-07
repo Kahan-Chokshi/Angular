@@ -1,7 +1,7 @@
 export class Buses {
     _id: string;
-    BusNumber: number;
-    Stops: string;
-    CreatedAt: string;
-    UpdatedAt: string;
+    busNumber: number;
+    stops: string;
+    createdAt: string;
+    updatedAt: string;
 }

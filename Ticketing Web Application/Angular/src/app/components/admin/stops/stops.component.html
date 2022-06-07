@@ -8,14 +8,15 @@
         <div align="center">
           <div class="card-body">
             <h1 align="left">Stop</h1>
-            <form #Form>
+            <form #Form="ngForm" (ngSubmit)="onSubmit(Form)">
               <div class="mb-2">
                 <div align="left" style="padding-left: 85px; font-size: 20px">
                   Search Stop
                 </div>
                 <input
                   type="text"
-                  name="Bus"
+                  name="stopName"
+                  ngModel
                   class="col-md-10"
                   style="border-radius: 0.3rem; height: 50px"
                   required
@@ -32,6 +33,10 @@
                   color: rgb(0, 0, 0);
                   background-color: transparent;
                 "
+                (click)="getStopsListData(Form)"
+                class="btn btn-dark mb-2 col-md-5"
+                type="submit"
+                [disabled]="!Form.valid"
                 class="btn btn-dark mb-2 col-md-5"
                 type="submit"
               >
@@ -49,7 +54,6 @@
                   background-color: transparent;
                 "
                 class="btn btn-dark col-md-5"
-                (click)="open(mymodal)"
                 type="button"
               >
                 Add
@@ -62,45 +66,6 @@
   </div>
 </div>
 
-<ng-template #mymodal let-modal>
-  <div class="modal-header">
-    <h4 class="modal-title" id="modal-basic-title">Add Bus</h4>
-    <button
-      type="button"
-      class="close"
-      aria-label="Close"
-      (click)="modal.dismiss('Cross click')"
-    >
-      <span aria-hidden="true">×</span>
-    </button>
-  </div>
-  <div class="modal-body">
-    <span>Bus Stop</span>
-    <input
-      style="width: 100%"
-      type="text"
-      placeholder="Enter Bus Stops"
-      required
-    />
-  </div>
-  <div class="modal-footer">
-    <button
-      type="button"
-      class="btn btn-outline-dark"
-      (click)="modal.dismiss('Cross click')"
-    >
-      Cancel
-    </button>
-    <button
-      type="button"
-      class="btn btn-outline-dark"
-      (click)="modal.close('Save click')"
-    >
-      Save
-    </button>
-  </div>
-</ng-template>
-
 <div class="container py-3 h-80">
   <div class="row d-flex justify-content-center h-100">
     <div class="col-12 col-md-10 col-lg-8 col-xl-10">
@@ -111,7 +76,32 @@
         <div align="center">
           <div class="card-body">
             <h1 align="left">Result</h1>
-            <!-- {{}} -->
+            <div align="center">
+              <table class="col-md-4" *ngIf="stopService.Stops">
+                <thead>
+                  <tr>
+                    <th>Stop</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let Stop of stopService.Stops">
+                    <td>{{ Stop.name }}</td>
+                    <td>
+                      <a (click)="onEdit(Stop)">
+                        <i class="fa fa-pencil"></i>
+                      </a>
+                    </td>
+                    <td>
+                      <a (click)="onDelete(Stop._id)">
+                        <i class="fa fa-trash"></i>
+                      </a>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
       </div>

@@ -10,7 +10,7 @@ const routes: Routes = [
     component: UserComponent,
     children: [
       {
-        path: 'search',
+        path: '',
         component: SearchComponent,
         pathMatch: 'full'
       },

@@ -39,14 +39,12 @@ const FormAddOrEditBus: React.FC<{
     }
     const onSaveHandler = () => {
         if (props.mode === 'Add') {
-            //send Post request and create new fields in DB
             const enteredStopName = stopNameInputRef.current.value;
             saveStop('http://localhost:8080/admin/addNewStop','POST',{
                 stopName:enteredStopName
             })
         }
         if (props.mode === 'Edit') {
-            //send Put request and replace the existing Bus
             const enteredStopName = stopNameInputRef.current.value;
             saveStop('http://localhost:8080/admin/editStop','PUT',{
                 _id:props._id,

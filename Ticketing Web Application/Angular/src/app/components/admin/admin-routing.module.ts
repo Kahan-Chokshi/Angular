@@ -11,7 +11,7 @@ const routes: Routes = [
     component: AdminComponent,
     children: [
       {
-        path: 'buses',
+        path: '',
         component: BusesComponent,
         pathMatch: 'full'
       },

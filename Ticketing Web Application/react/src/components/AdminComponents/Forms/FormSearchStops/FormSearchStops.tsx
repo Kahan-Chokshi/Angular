@@ -35,14 +35,12 @@ const FormSearchStops:React.FC = () => {
         const enteredStopName = stopNameRef.current.value,
             enteredStopId = stopIdRef.current.value;
         if(enteredStopName.length > 0){
-            //fetch Request with stopName
             fetchStop({
                 stopName:enteredStopName
             })
             return;
         }
         if(enteredStopId.length > 0) {
-            //fetch request with stop id
             fetchStop({
                 stopId:enteredStopId
             })
