@@ -9,7 +9,7 @@ export class StopsService {
     selectedStop: Stops;
     Stops: Stops[];
   
-    baseURL = 'http://localhost:8080/admin';
+    baseURL = 'http://localhost:8080/admin1';
   
     constructor(private http:HttpClient) {}
     postStop(S: Stops) {

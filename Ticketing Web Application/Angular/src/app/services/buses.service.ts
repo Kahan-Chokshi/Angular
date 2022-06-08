@@ -9,7 +9,7 @@ export class BusesService {
   selectedBus: Buses;
   Buses: Buses[];
 
-  baseURL = 'http://localhost:8080/admin';
+  baseURL = 'http://localhost:8080/admin1';
 
   constructor(private http: HttpClient) {}
   postBus(B: Buses) {
