@@ -1,54 +1,53 @@
 .container {
-    display: block;
-    position: relative;
+  display: block;
+  position: relative;
 }
 .text {
-    margin: 0;
-    width: 80%;
+  margin: 0;
+  width: 80%;
 
-    text-align: center;
+  text-align: center;
 }
 .image {
-    margin-left: 30px;
+  margin-left: 30px;
 }
 .btn {
-    padding: 10px;
-    height: 100%;
-    width: 100%;
-    border: none;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
+  padding: 10px;
+  height: 100%;
+  width: 100%;
+  border: none;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
 }
 .background {
-    position: absolute;
-    top: 0;
-    right: 0;
-    left: 0;
-    z-index: -10;
-    height: 100%;
-    width: 100%;
-    border: none;
-
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: -10;
+  height: 100%;
+  width: 100%;
+  border: none;
 }
 .blur {
-    filter: blur(10px);
+  filter: blur(10px);
 }
 .green {
-    background: linear-gradient(90deg, #9AFF8A 0%, #8AFFE3 100%);
-    border-radius: 10px;
+  background: linear-gradient(90deg, #9aff8a 0%, #8affe3 100%);
+  border-radius: 10px;
 }
 
 .red {
-    background: linear-gradient(90deg, #F77C7C 0%, #FFF48E 100%);
-    border-radius: 10px;
+  background: linear-gradient(90deg, #f77c7c 0%, #fff48e 100%);
+  border-radius: 10px;
 }
 
 .violet {
-    background: linear-gradient(90deg, #99A9FF 0%, #D886FF 100%);
-    border-radius: 10px;
+  background: linear-gradient(90deg, #99a9ff 0%, #d886ff 100%);
+  border-radius: 10px;
 }
 .transparent {
-    background: rgba(255, 255, 255, 0);
-    border-radius: 10px;
+  background: rgba(255, 255, 255, 0);
+  border-radius: 10px;
 }

@@ -31,8 +31,8 @@ import {
 import fetch from "node-fetch";
 
 function App() {
-const pathHistory = useHistory();
-const dispatch = useDispatch();
+  const pathHistory = useHistory();
+  const dispatch = useDispatch();
   useEffect(() => {
     fetch("http://localhost:8080/validateToken", {
       headers: {
@@ -75,7 +75,7 @@ const dispatch = useDispatch();
           </Route>
           {isLoggedIn ? (
             <Route path={searchLink}>
-               <SearchPage />
+              <SearchPage />
             </Route>
           ) : (
             <Route path={loginLink}>

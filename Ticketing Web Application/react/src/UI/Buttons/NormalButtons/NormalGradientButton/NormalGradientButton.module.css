@@ -1,42 +1,41 @@
 .container {
-    display: block;
-    position: relative;
+  display: block;
+  position: relative;
 }
 .btn {
-    padding: 10px;
-    height: 100%;
-    width: 100%;
-    border: none;
+  padding: 10px;
+  height: 100%;
+  width: 100%;
+  border: none;
 }
 .background {
-    position: absolute;
-    top: 0;
-    right: 0;
-    z-index: -10;
-    height: 100%;
-    width: 100%;
-    border: none;
-
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: -10;
+  height: 100%;
+  width: 100%;
+  border: none;
 }
 .blur {
-    filter: blur(10px);
+  filter: blur(10px);
 }
 .green {
-    background: linear-gradient(90deg, #9AFF8A 0%, #8AFFE3 100%);
-    border-radius: 10px;
+  background: linear-gradient(90deg, #9aff8a 0%, #8affe3 100%);
+  border-radius: 10px;
 }
 
 .red {
-    background: linear-gradient(90deg, #F77C7C 0%, #FFF48E 100%);
-    border-radius: 10px;
+  background: linear-gradient(90deg, #f77c7c 0%, #fff48e 100%);
+  border-radius: 10px;
 }
 
 .violet {
-    background: linear-gradient(90deg, #99A9FF 0%, #D886FF 100%);
-    border-radius: 10px;
+  background: linear-gradient(90deg, #99a9ff 0%, #d886ff 100%);
+  border-radius: 10px;
 }
 
 .pink {
-    background:linear-gradient(90deg, #FF9797 0%, #FF96D5 93.75%);
-    border-radius: 10px;
+  background: linear-gradient(90deg, #ff9797 0%, #ff96d5 93.75%);
+  border-radius: 10px;
 }

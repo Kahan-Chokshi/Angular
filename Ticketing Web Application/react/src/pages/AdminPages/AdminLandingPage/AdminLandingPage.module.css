@@ -1,18 +1,18 @@
 .entire {
-    flex-grow: 1;
-    display: flex;
-    flex-flow: column;
-    justify-content: space-around;
+  flex-grow: 1;
+  display: flex;
+  flex-flow: column;
+  justify-content: space-around;
 }
 .common {
-    text-align: center;
+  text-align: center;
 }
 .heading {
-    color: white;
+  color: white;
 }
 .subText {
-    color: white;
-    opacity: 50%;
-    font-weight: bold;
-    margin-bottom: 30px;
+  color: white;
+  opacity: 50%;
+  font-weight: bold;
+  margin-bottom: 30px;
 }

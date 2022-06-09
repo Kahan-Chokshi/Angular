@@ -1,18 +1,18 @@
 .card {
-    z-index: 101;
-    position: relative;
-    flex-grow: 0;
-    padding: 30px;
+  z-index: 101;
+  position: relative;
+  flex-grow: 0;
+  padding: 30px;
 }
 .titleContainer {
-    display: flex;
-    color: white;
-    justify-content: space-between;
+  display: flex;
+  color: white;
+  justify-content: space-between;
 }
 .message {
-    color: white;
+  color: white;
 }
 .buttonsContainer {
-    display: flex;
-    justify-content: space-evenly;
+  display: flex;
+  justify-content: space-evenly;
 }

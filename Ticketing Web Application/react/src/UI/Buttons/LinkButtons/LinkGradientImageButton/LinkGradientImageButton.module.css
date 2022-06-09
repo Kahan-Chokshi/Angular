@@ -1,48 +1,46 @@
 .container {
-    position: relative;
-    width: 100%;
-    margin-top: 30px;
-    margin-bottom: 30px;
+  position: relative;
+  width: 100%;
+  margin-top: 30px;
+  margin-bottom: 30px;
 }
 .link {
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-    color: black;
-    padding: 10px;
-
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: black;
+  padding: 10px;
 }
 .background {
-    top: 0;
-    right: 0;
-    z-index: -10;
-    position: absolute;
-    height: 100%;
-    width: 100%;
+  top: 0;
+  right: 0;
+  z-index: -10;
+  position: absolute;
+  height: 100%;
+  width: 100%;
 }
 .btnImg {
-    margin-left: 30px ;
+  margin-left: 30px;
 }
 .btnText {
-    width: 80%;
-    margin: 0;
-    text-align: center;
-
+  width: 80%;
+  margin: 0;
+  text-align: center;
 }
 .blur {
-    filter: blur(10px);
+  filter: blur(10px);
 }
 .green {
-    background: linear-gradient(90deg, #9AFF8A 0%, #8AFFE3 100%);
-    border-radius: 10px;
+  background: linear-gradient(90deg, #9aff8a 0%, #8affe3 100%);
+  border-radius: 10px;
 }
 
 .red {
-    background: linear-gradient(90deg, #F77C7C 0%, #FFF48E 100%);
-    border-radius: 10px;
+  background: linear-gradient(90deg, #f77c7c 0%, #fff48e 100%);
+  border-radius: 10px;
 }
 
 .violet {
-    background: linear-gradient(90deg, #99A9FF 0%, #D886FF 100%);
-    border-radius: 10px;
+  background: linear-gradient(90deg, #99a9ff 0%, #d886ff 100%);
+  border-radius: 10px;
 }

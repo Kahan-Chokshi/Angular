@@ -1,70 +1,70 @@
 .pText {
-    margin:0;
+  margin: 0;
 }
 .boldFont {
-    font-weight: bold;
+  font-weight: bold;
 }
 .container {
-    margin-top: 10px;
-    position: relative;
-    display: flex;
-    justify-content: space-evenly;
+  margin-top: 10px;
+  position: relative;
+  display: flex;
+  justify-content: space-evenly;
 }
 .background {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, #F77C7C 0%, #FFF48E 100%);
-    border-radius: 10px;
-    z-index: -20;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, #f77c7c 0%, #fff48e 100%);
+  border-radius: 10px;
+  z-index: -20;
 }
 
 .busDetails {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
 .busTime {
-    display: flex;
+  display: flex;
 }
 .controls {
-    flex-grow: 0.4;
-    display: flex;
-    align-self: center;
-    justify-content: center;
-    align-items: center;
+  flex-grow: 0.4;
+  display: flex;
+  align-self: center;
+  justify-content: center;
+  align-items: center;
 }
 .controlButtons {
-    font-size: 20px;
-    color: white;
-    background-color:black;
-    min-height: 40px;
-    min-width: 40px;
-    border-radius: 20px;
+  font-size: 20px;
+  color: white;
+  background-color: black;
+  min-height: 40px;
+  min-width: 40px;
+  border-radius: 20px;
 }
 .ticketCount {
-    min-width: 20%;
-    height: 100%;
-    padding: 10px;
-    border-radius: 5px;
-    background-color: #5A5A5A;
-    color: white;
-    text-align: center;
-    margin: 0 10px
+  min-width: 20%;
+  height: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #5a5a5a;
+  color: white;
+  text-align: center;
+  margin: 0 10px;
 }
 .buyButton {
-    display: block;
-    border: 1px #a5a5a5 solid ;
-    border-radius: 10px;
-    margin-left: 30px;
-    font-weight: bold;
+  display: block;
+  border: 1px #a5a5a5 solid;
+  border-radius: 10px;
+  margin-left: 30px;
+  font-weight: bold;
 }
-@media (min-width: 0px) and (max-width: 750px){
-    .container {
-        flex-basis: 100%;
-        flex-wrap: wrap;
-    }
-    .controls {
-        margin: 1vh 0;
-    }
+@media (min-width: 0px) and (max-width: 750px) {
+  .container {
+    flex-basis: 100%;
+    flex-wrap: wrap;
+  }
+  .controls {
+    margin: 1vh 0;
+  }
 }

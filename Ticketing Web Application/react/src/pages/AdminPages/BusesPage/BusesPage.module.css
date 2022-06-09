@@ -1,20 +1,16 @@
 .busesContainer {
-    padding:5vh 5vw 5vh 5vw;
-    flex-grow: 1;
+  padding: 5vh 5vw 5vh 5vw;
+  flex-grow: 1;
 }
 .subContainer {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-}
-.bottomCard{
-    display: flex;
-}
-.topCard {
-
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 .bottomCard {
-    margin-top: 30px;
-    flex-grow: 1;
-
+  display: flex;
+}
+.bottomCard {
+  margin-top: 30px;
+  flex-grow: 1;
 }

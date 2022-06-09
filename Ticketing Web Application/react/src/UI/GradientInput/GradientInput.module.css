@@ -1,50 +1,45 @@
 .inputContainer {
-
-    display: flex;
-    flex-direction: column;
-    padding-top: 10px;
-
+  display: flex;
+  flex-direction: column;
+  padding-top: 10px;
 }
 .inputSubContainer {
-    position: relative;
-    display: flex;
-
+  position: relative;
+  display: flex;
 }
 .labelText {
-    margin-left: 10px;
-    margin-bottom: 10px;
-    color: white;
+  margin-left: 10px;
+  margin-bottom: 10px;
+  color: white;
 }
 .background {
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    flex-grow: 1;
-    border-radius: 10px;
-    z-index: -10;
-
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  flex-grow: 1;
+  border-radius: 10px;
+  z-index: -10;
 }
 .normal {
-    background-color: #313131;
-    padding: 10px 20px;
-    border-radius: 10px;
-    color: white;
-    width: 100%;
-    flex-grow: 1;
-    border: 1px solid #5A5A5A;
-    outline: none;
-    margin: 1px;
-
+  background-color: #313131;
+  padding: 10px 20px;
+  border-radius: 10px;
+  color: white;
+  width: 100%;
+  flex-grow: 1;
+  border: 1px solid #5a5a5a;
+  outline: none;
+  margin: 1px;
 }
 
 .green {
-    background: linear-gradient(90deg, #9AFF8A 0%, #8AFFE3 100%);
+  background: linear-gradient(90deg, #9aff8a 0%, #8affe3 100%);
 }
 
 .red {
-    background: linear-gradient(90deg, #F77C7C 0%, #FFF48E 100%);
+  background: linear-gradient(90deg, #f77c7c 0%, #fff48e 100%);
 }
 
 .violet {
-    background: linear-gradient(90deg, #99A9FF 0%, #D886FF 100%);
+  background: linear-gradient(90deg, #99a9ff 0%, #d886ff 100%);
 }
