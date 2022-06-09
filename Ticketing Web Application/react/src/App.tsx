@@ -58,7 +58,7 @@ function App() {
       .catch((err) => {
         console.log(err);
       });
-  }, [dispatch]);
+  }, [dispatch,pathHistory]);
   const isAdmin: boolean = useSelector<{ auth: authObjectType }, boolean>(
     (state) => state.auth.isAdmin
   );
