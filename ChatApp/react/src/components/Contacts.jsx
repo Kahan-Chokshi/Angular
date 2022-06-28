@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Badge } from "antd";
 import styled from "styled-components";
 import Logo from "../assets/bee.png";
 
@@ -44,6 +45,7 @@ export default function Contacts({ contacts, changeChat }) {
                   <div className="username">
                     <h3>{contact.username}</h3>
                   </div>
+                  <Badge className="badge" count={5}></Badge>
                 </div>
               );
             })}
@@ -122,7 +124,15 @@ const Container = styled.div`
       background-color: #9a86f3;
     }
   }
-
+  .badge {
+    background-color: red;
+    color: #fff;
+    padding-left:4px;
+    padding-top:3px;
+    height:1rem;
+    width:1rem;
+    border-radius: 5rem;
+  }
   .current-user {
     background-color: #0d0d30;
     display: flex;
