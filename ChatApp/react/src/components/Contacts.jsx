@@ -127,10 +127,11 @@ const Container = styled.div`
   .badge {
     background-color: red;
     color: #fff;
-    padding-left:4px;
-    padding-top:3px;
-    height:1rem;
-    width:1rem;
+    font-size:20px;
+    padding-left:7px;
+    padding-top:5px;
+    height:1.5rem;
+    width:1.5rem;
     border-radius: 5rem;
   }
   .current-user {
