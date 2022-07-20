@@ -13,6 +13,7 @@ import Lottie from "react-lottie";
 import animationData from "../animations/typing.json";
 import Picker from "emoji-picker-react";
 import { BsEmojiSmile } from "react-icons/bs";
+import { BsPaperclip } from "react-icons/bs";
 import io from "socket.io-client";
 import UpdateGroupChatModal from "./miscellaneous/UpdateGroupChatModal";
 import { ChatState } from "../Context/ChatProvider";
@@ -122,7 +123,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
     socket.on("connected", () => setSocketConnected(true));
     socket.on("typing", () => setIsTyping(true));
     socket.on("stop typing", () => setIsTyping(false));
-  }, []);
+  }, [user]);
 
   useEffect(() => {
     fetchMessages();
@@ -254,8 +255,9 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
                 value={newMessage}
                 onChange={typingHandler}
               />
-              <BsEmojiSmile class="emoji" onClick={handleEmojiPickerhideShow} />
+              <BsEmojiSmile className="emoji" onClick={handleEmojiPickerhideShow} />
               {showEmojiPicker && <Picker onEmojiClick={handleEmojiClick} />}
+              <BsPaperclip className="attach"/>
             </FormControl>
           </Box>
         </>
