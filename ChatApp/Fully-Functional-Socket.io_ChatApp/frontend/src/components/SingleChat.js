@@ -12,7 +12,7 @@ import ScrollableChat from "./ScrollableChat";
 import Lottie from "react-lottie";
 import animationData from "../animations/typing.json";
 import Picker from "emoji-picker-react";
-import { BsEmojiSmileFill } from "react-icons/bs";
+import { BsEmojiSmile } from "react-icons/bs";
 import io from "socket.io-client";
 import UpdateGroupChatModal from "./miscellaneous/UpdateGroupChatModal";
 import { ChatState } from "../Context/ChatProvider";
@@ -247,8 +247,6 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
               ) : (
                 <></>
               )}
-              <BsEmojiSmileFill onClick={handleEmojiPickerhideShow} />
-              {showEmojiPicker && <Picker onEmojiClick={handleEmojiClick} />}
               <Input
                 variant="filled"
                 bg="#E0E0E0"
@@ -256,6 +254,8 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
                 value={newMessage}
                 onChange={typingHandler}
               />
+              <BsEmojiSmile class="emoji" onClick={handleEmojiPickerhideShow} />
+              {showEmojiPicker && <Picker onEmojiClick={handleEmojiClick} />}
             </FormControl>
           </Box>
         </>
