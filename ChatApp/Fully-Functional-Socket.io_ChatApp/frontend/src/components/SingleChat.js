@@ -35,9 +35,9 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
   };
 
   const handleEmojiClick = (event, emojiObject) => {
-    let message = messages;
+    let message = newMessage;
     message += emojiObject.emoji;
-    setMessages(message);
+    setNewMessage(message);
   };
 
   const defaultOptions = {
