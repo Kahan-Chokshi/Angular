@@ -7,7 +7,7 @@ const allMessages = asyncHandler(async (req, res) => {
   try {
     const messages = await Message.find({ chat: req.params.chatId })
       .populate("sender", "name pic email")
-      .populate("chat");
+      .populate("chat","file");
     res.json(messages);
   } catch (error) {
     res.status(400);
@@ -16,7 +16,9 @@ const allMessages = asyncHandler(async (req, res) => {
 });
 
 const sendMessage = asyncHandler(async (req, res) => {
-  const { content, chatId } = req.body;
+  const { content, chatId, file} = req.body;
+  console.log(content);
+  console.log(file);
 
   if (!content || !chatId) {
     console.log("Invalid data passed into request");
@@ -27,13 +29,14 @@ const sendMessage = asyncHandler(async (req, res) => {
     sender: req.user._id,
     content: content,
     chat: chatId,
+    file: file,
   };
 
   try {
     var message = await Message.create(newMessage);
 
     message = await message.populate("sender", "name pic").execPopulate();
-    message = await message.populate("chat").execPopulate();
+    message = await message.populate("chat", "file").execPopulate();
     message = await User.populate(message, {
       path: "chat.users",
       select: "name pic email",

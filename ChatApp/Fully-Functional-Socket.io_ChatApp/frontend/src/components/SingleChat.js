@@ -24,6 +24,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
   const [messages, setMessages] = useState([]);
   const [loading, setLoading] = useState(false);
   const [newMessage, setNewMessage] = useState("");
+  const [files, setFiles] = useState("");
   const [socketConnected, setSocketConnected] = useState(false);
   const [typing, setTyping] = useState(false);
   const [istyping, setIsTyping] = useState(false);
@@ -34,11 +35,44 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
     setShowEmojiPicker(!showEmojiPicker);
   };
 
-  const handleEmojiClick = (event, emojiObject) => {
+  const handleEmojiClick = (emojiObject) => {
     let message = newMessage;
     message += emojiObject.emoji;
     setNewMessage(message);
   };
+
+  const handleFileChange = (e) => {
+    const fileList = e.target.files;
+    console.log(fileList);
+    if (fileList) {
+      toBase64(fileList[0]);
+    }
+  };
+
+  const toBase64 = (file) => {
+    var filereader = new FileReader();
+    filereader.readAsDataURL(file);
+    filereader.onload = () => {
+      console.log(filereader);
+      var convert = filereader.result;
+      setFiles(convert);
+    };
+    filereader.onerror = () => {
+      console.log(filereader.error);
+    };
+    // return set;
+  };
+
+  if (files) {
+    console.log(files);
+  }
+
+  // const set = (convert) => {
+  //   console.log("set called");
+  //   setFiles(convert);
+  //   console.log(files);
+  //   setNewMessage(files)
+  // };
 
   const defaultOptions = {
     loop: true,
@@ -63,11 +97,11 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
 
       setLoading(true);
 
-      const { data } = await axios.get(
+      const { data, file } = await axios.get(
         `/api/message/${selectedChat._id}`,
         config
       );
-      setMessages(data);
+      setMessages(data,file);
       setLoading(false);
 
       socket.emit("join chat", selectedChat._id);
@@ -94,17 +128,20 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
           },
         };
         setNewMessage("");
+        console.log(files);
         const { data } = await axios.post(
           "/api/message",
           {
             content: newMessage,
             chatId: selectedChat,
+            file: files,
           },
           config
         );
         socket.emit("new message", data);
         setMessages([...messages, data]);
       } catch (error) {
+        console.log(error);
         toast({
           title: "Error Occured!",
           description: "Failed to send the Message",
@@ -255,9 +292,21 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
                 value={newMessage}
                 onChange={typingHandler}
               />
-              <BsEmojiSmile className="emoji" onClick={handleEmojiPickerhideShow} />
+              <BsEmojiSmile
+                className="emoji"
+                onClick={handleEmojiPickerhideShow}
+              />
               {showEmojiPicker && <Picker onEmojiClick={handleEmojiClick} />}
-              <BsPaperclip className="attach"/>
+              <label htmlFor="attach">
+                <BsPaperclip className="attach" />
+              </label>
+              <input
+                type="file"
+                id="attach"
+                style={{ display: "none" }}
+                onChange={(e) => handleFileChange(e)}
+                accept="image/*"
+              />
             </FormControl>
           </Box>
         </>

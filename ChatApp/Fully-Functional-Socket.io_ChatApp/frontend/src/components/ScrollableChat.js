@@ -43,6 +43,9 @@ const ScrollableChat = ({ messages }) => {
               }}
             >
               {m.content}
+              {m.file && (
+                  <img src={`${m.file}`} alt="img"/>
+                )}
             </span>
           </div>
         ))}
