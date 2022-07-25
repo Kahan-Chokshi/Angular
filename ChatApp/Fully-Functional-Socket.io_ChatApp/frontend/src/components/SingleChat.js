@@ -60,19 +60,11 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
     filereader.onerror = () => {
       console.log(filereader.error);
     };
-    // return set;
   };
 
   if (files) {
     console.log(files);
   }
-
-  // const set = (convert) => {
-  //   console.log("set called");
-  //   setFiles(convert);
-  //   console.log(files);
-  //   setNewMessage(files)
-  // };
 
   const defaultOptions = {
     loop: true,
