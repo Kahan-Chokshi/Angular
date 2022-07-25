@@ -42,10 +42,10 @@ const ScrollableChat = ({ messages }) => {
                 maxWidth: "75%",
               }}
             >
-              {m.content}
               {m.file && (
-                  <img src={`${m.file}`} alt="img"/>
+                  <img src={`${m.file}`} alt="img" style={{borderRadius:"16px"}}/>
                 )}
+              {m.content}
             </span>
           </div>
         ))}
